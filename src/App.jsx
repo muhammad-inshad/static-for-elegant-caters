@@ -9,19 +9,31 @@ import Testimonials from './components/Testimonials';
 import Statistics from './components/Statistics';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Terms from './components/Terms';
+import DeleteInfo from './components/DeleteInfo';
 
 function App() {
+  const path = window.location.pathname;
+
   return (
     <div className="min-h-screen bg-premium-white overflow-x-hidden">
       <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <WhyChooseUs />
-      <Gallery />
-      <Testimonials />
-      <Statistics />
-      <Contact />
+      {path === '/terms' ? (
+        <Terms />
+      ) : path === '/delete-account' ? (
+        <DeleteInfo />
+      ) : (
+        <>
+          <Hero />
+          <About />
+          <Services />
+          <WhyChooseUs />
+          <Gallery />
+          <Testimonials />
+          <Statistics />
+          <Contact />
+        </>
+      )}
       <Footer />
     </div>
   );
